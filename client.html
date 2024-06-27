@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Change Background Color with Sound Effects on Key Press</title>
+<style>
+  body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s ease;
+  }
+</style>
+</head>
+<body>
+
+<audio id="sound-a" src="Ding.mp3"></audio>
+<audio id="sound-l" src="Buzz.mp3"></audio>
+
+<script>
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'a') {
+      document.body.style.backgroundColor = 'green';
+      document.getElementById('sound-a').play();
+      setTimeout(function() {
+        document.body.style.backgroundColor = '';
+      }, 1000);
+    } else if (event.key === 'l') {
+      document.body.style.backgroundColor = 'red';
+      document.getElementById('sound-l').play();
+      setTimeout(function() {
+        document.body.style.backgroundColor = '';
+      }, 1000);
+    }
+  });
+</script>
+
+</body>
+</html>
